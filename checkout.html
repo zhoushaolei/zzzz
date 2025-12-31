@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结算 - 优品电商</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">优品电商</a>
+            
+            <div class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">全部商品</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">热卖推荐</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="login.html">登录/注册</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索商品...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 结算主内容 -->
+    <main class="container">
+        <h1 class="section-title">提交订单</h1>
+        
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <h3 style="margin-bottom: 20px; font-size: 1.5rem;">收货地址</h3>
+                <div class="form-group">
+                    <label for="recipient-name">收货人姓名</label>
+                    <input type="text" id="recipient-name" required placeholder="请输入姓名">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="recipient-phone">手机号码</label>
+                        <input type="tel" id="recipient-phone" required placeholder="请输入手机号">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="recipient-postcode">邮政编码</label>
+                        <input type="text" id="recipient-postcode" placeholder="请输入邮编">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipient-province">所在地区</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select id="recipient-province" style="flex: 1;">
+                            <option value="">请选择省份</option>
+                            <option value="北京市">北京市</option>
+                            <option value="上海市">上海市</option>
+                            <option value="广东省">广东省</option>
+                            <option value="浙江省">浙江省</option>
+                            <option value="江苏省">江苏省</option>
+                        </select>
+                        <select id="recipient-city" style="flex: 1;">
+                            <option value="">请选择城市</option>
+                        </select>
+                        <select id="recipient-area" style="flex: 1;">
+                            <option value="">请选择区县</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipient-address">详细地址</label>
+                    <input type="text" id="recipient-address" required placeholder="街道、小区、门牌号等">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address-note">备注</label>
+                    <textarea id="address-note" placeholder="选填，如：快递放门口、周末送货等"></textarea>
+                </div>
+                
+                <h3 style="margin: 30px 0 20px; font-size: 1.5rem;">支付方式</h3>
+                <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="payment-method" value="wechat" checked>
+                        <span><i class="fab fa-weixin" style="color: #07C160; font-size: 1.2rem;"></i> 微信支付</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="payment-method" value="alipay">
+                        <span><i class="fab fa-alipay" style="color: #1677FF; font-size: 1.2rem;"></i> 支付宝</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="payment-method" value="card">
+                        <span><i class="fas fa-credit-card" style="color: #666; font-size: 1.2rem;"></i> 银行卡</span>
+                    </label>
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="submitOrder()">提交订单并支付</button>
+            </div>
+            
+            <div>
+                <div class="cart-summary" style="max-width: 100%;">
+                    <h3>订单摘要</h3>
+                    
+                    <div id="order-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;">
+                        <!-- 订单商品会通过JS动态生成 -->
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>商品总价</span>
+                        <span id="order-subtotal">¥0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>运费</span>
+                        <span id="order-shipping">¥0.00</span>
+                    </div>
+                    <div class="summary-row" style="color: #e63946;">
+                        <span>优惠减免</span>
+                        <span>¥0.00</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>订单总价</span>
+                        <span id="order-total">¥0.00</span>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <p><i class="fas fa-shield-alt" style="color: #3498db;"></i> 支付安全保障</p>
+                        <p style="font-size: 0.9rem; color: #999; margin-top: 5px;">
+                            本网站采用加密技术保障您的支付安全，订单提交后请在15分钟内完成支付
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; border-radius: 10px; padding: 20px; margin-top: 20px; box-shadow: var(--shadow);">
+                    <h4 style="margin-bottom: 15px;"><i class="fas fa-info-circle" style="color: #3498db;"></i> 配送说明</h4>
+                    <ul style="color: #666; line-height: 1.8; margin-left: 20px;">
+                        <li>订单提交后48小时内发货，预计2-3天送达</li>
+                        <li>满299元免运费，不足299元收取10元运费</li>
+                        <li>支持7天无理由退换货，质量问题包邮费</li>
+                        <li>如遇节假日，发货时间可能顺延</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">招贤纳士</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>客户服务</h3>
+                <ul>
+                    <li><a href="#">购物指南</a></li>
+                    <li><a href="#">支付方式</a></li>
+                    <li><a href="#">配送说明</a></li>
+                    <li><a href="#">售后服务</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <ul>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">抖音账号</a></li>
+                    <li><a href="#">小红书</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                    <li><i class="fas fa-envelope"></i> service@youpin.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区XX大厦</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            <p>&copy; 2025 优品电商 版权所有 | 京ICP备12345678号</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 页面加载时初始化订单信息
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartItems = getCartItems();
+            
+            // 如果购物车为空，跳回购物车页面
+            if (cartItems.length === 0) {
+                alert('您的购物车为空，请先添加商品！');
+                window.location.href = 'cart.html';
+                return;
+            }
+            
+            // 渲染订单商品
+            renderOrderItems();
+            
+            // 计算订单总价
+            const totals = calculateCartTotal();
+            
+            // 更新价格显示
+            document.getElementById('order-subtotal').textContent = '¥' + totals.subtotal.toFixed(2);
+            document.getElementById('order-shipping').textContent = '¥' + totals.shipping.toFixed(2);
+            document.getElementById('order-total').textContent = '¥' + totals.total.toFixed(2);
+        });
+        
+        // 渲染订单商品列表
+        function renderOrderItems() {
+            const cartItems = getCartItems();
+            const orderItemsContainer = document.getElementById('order-items');
+            
+            let itemsHtml = '';
+            cartItems.forEach(item => {
+                itemsHtml += `
+                    <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <div>
+                                <p style="font-weight: 500;">${item.name}</p>
+                                <p style="font-size: 0.9rem; color: #999;">x${item.quantity}</p>
+                            </div>
+                        </div>
+                        <div style="font-weight: 500;">¥${(item.price * item.quantity).toFixed(2)}</div>
+                    </div>
+                `;
+            });
+            
+            orderItemsContainer.innerHTML = itemsHtml;
+        }
+        
+        // 提交订单
+        function submitOrder() {
+            // 简单的表单验证
+            const name = document.getElementById('recipient-name').value;
+            const phone = document.getElementById('recipient-phone').value;
+            const address = document.getElementById('recipient-address').value;
+            
+            if (!name) {
+                alert('请输入收货人姓名！');
+                return;
+            }
+            
+            if (!phone || !/^1[3-9]\d{9}$/.test(phone)) {
+                alert('请输入有效的手机号码！');
+                return;
+            }
+            
+            if (!address) {
+                alert('请输入详细地址！');
+                return;
+            }
+            
+            // 获取选中的支付方式
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            let paymentText = '';
+            
+            switch(paymentMethod) {
+                case 'wechat':
+                    paymentText = '微信支付';
+                    break;
+                case 'alipay':
+                    paymentText = '支付宝';
+                    break;
+                case 'card':
+                    paymentText = '银行卡';
+                    break;
+            }
+            
+            // 模拟订单提交
+            alert(`订单提交成功！\n\n请使用${paymentText}完成支付。\n\n订单提交后我们会尽快为您发货，感谢您的购买！`);
+            
+            // 清空购物车
+            saveCartItems([]);
+            
+            // 跳回首页
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

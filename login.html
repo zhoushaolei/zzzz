@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 优品电商</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">优品电商</a>
+            
+            <div class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">全部商品</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">热卖推荐</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="login.html" class="active">登录/注册</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索商品...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 登录主内容 -->
+    <main class="login-container">
+        <div class="login-img">
+            <div class="login-img-content">
+                <h2>欢迎回来</h2>
+                <p>登录您的账号，享受更多会员权益</p>
+                <div style="margin-top: 30px;">
+                    <p>新用户？<a href="#" style="color: #e63946; text-decoration: none;">立即注册</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-form">
+            <div class="login-form-content">
+                <h2>账号登录</h2>
+                
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">用户名/手机号</label>
+                        <input type="text" id="login-username" required placeholder="请输入用户名或手机号">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">密码</label>
+                        <input type="password" id="login-password" required placeholder="请输入密码">
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                            <input type="checkbox" id="remember-me">
+                            <span>记住我</span>
+                        </label>
+                        <a href="#" style="color: #e63946; text-decoration: none; font-size: 0.9rem;">忘记密码？</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">登录</button>
+                </form>
+                
+                <div style="margin: 30px 0; text-align: center; position: relative;">
+                    <span style="background-color: #f1faee; padding: 0 10px; color: #999;">其他登录方式</span>
+                    <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background-color: #ddd; z-index: -1;"></div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
+                    <a href="#" style="font-size: 1.5rem; color: #07C160;"><i class="fab fa-weixin"></i></a>
+                    <a href="#" style="font-size: 1.5rem; color: #1677FF;"><i class="fab fa-alipay"></i></a>
+                    <a href="#" style="font-size: 1.5rem; color: #1DA1F2;"><i class="fab fa-twitter"></i></a>
+                </div>
+                
+                <div class="form-footer">
+                    <p>还没有账号？<a href="#">立即注册</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">招贤纳士</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>客户服务</h3>
+                <ul>
+                    <li><a href="#">购物指南</a></li>
+                    <li><a href="#">支付方式</a></li>
+                    <li><a href="#">配送说明</a></li>
+                    <li><a href="#">售后服务</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <ul>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">抖音账号</a></li>
+                    <li><a href="#">小红书</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                    <li><i class="fas fa-envelope"></i> service@youpin.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区XX大厦</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            <p>&copy; 2025 优品电商 版权所有 | 京ICP备12345678号</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 登录表单提交处理
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            
+            // 简单的模拟登录验证
+            if (username && password) {
+                alert(`欢迎回来，${username}！登录成功！`);
+                
+                // 模拟登录成功后跳回首页
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            } else {
+                alert('请输入用户名和密码！');
+            }
+        });
+    </script>
+</body>
+</html>

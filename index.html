@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优品电商 - 高品质数码产品购物平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">优品电商</a>
+            
+            <div class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="products.html">全部商品</a></li>
+                    <li><a href="#">新品上市</a></li>
+                    <li><a href="#">热卖推荐</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="login.html">登录/注册</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索商品...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 轮播图 -->
+    <section class="hero-section">
+        <div class="hero-slider">
+            <div class="slide active">
+                <!-- 替换为SVG轮播图 -->
+                <svg width="100%" height="500" viewBox="0 0 1920 500" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100%" height="100%" fill="#1d3557"/>
+                    <text x="50%" y="50%" font-size="36" fill="white" text-anchor="middle" font-family="Arial">新品上市 · 极致体验</text>
+                </svg>
+                <div class="slide-content">
+                    <h1>新品上市</h1>
+                    <p>最新款智能手机，极致体验</p>
+                    <a href="products.html" class="btn btn-primary">立即选购</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色分类 -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">商品分类</h2>
+            <div class="categories-grid">
+                <a href="products.html?category=electronics" class="category-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>数码产品</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>电脑办公</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-headphones"></i>
+                    <h3>影音娱乐</h3>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-power-off"></i>
+                    <h3>配件耗材</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热销商品 -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">热销商品</h2>
+            <div class="featured-products">
+                <!-- 商品1：智能手机 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <!-- SVG商品图 -->
+                        <svg width="100%" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#f1faee"/>
+                            <rect x="100" y="20" width="300" height="160" rx="20" fill="#457b9d"/>
+                            <text x="50%" y="50%" font-size="24" fill="white" text-anchor="middle" font-family="Arial">高端智能手机</text>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product-detail.html?id=1">高端智能手机</a></h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="product-price">¥5999.00</p>
+                        <button class="btn btn-primary" onclick="addToCart(1, '高端智能手机', 5999, 'svg-mobile')">加入购物车</button>
+                    </div>
+                </div>
+
+                <!-- 商品2：蓝牙耳机 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <svg width="100%" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#f1faee"/>
+                            <rect x="100" y="20" width="300" height="160" rx="20" fill="#e63946"/>
+                            <text x="50%" y="50%" font-size="24" fill="white" text-anchor="middle" font-family="Arial">无线蓝牙耳机</text>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product-detail.html?id=2">无线蓝牙耳机</a></h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="product-price">¥899.00</p>
+                        <button class="btn btn-primary" onclick="addToCart(2, '无线蓝牙耳机', 899, 'svg-headset')">加入购物车</button>
+                    </div>
+                </div>
+
+                <!-- 商品3：智能手表 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <svg width="100%" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#f1faee"/>
+                            <rect x="100" y="20" width="300" height="160" rx="20" fill="#1d3557"/>
+                            <text x="50%" y="50%" font-size="24" fill="white" text-anchor="middle" font-family="Arial">时尚智能手表</text>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product-detail.html?id=3">时尚智能手表</a></h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="product-price">¥1599.00</p>
+                        <button class="btn btn-primary" onclick="addToCart(3, '时尚智能手表', 1599, 'svg-watch')">加入购物车</button>
+                    </div>
+                </div>
+
+                <!-- 商品4：笔记本电脑 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <svg width="100%" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#f1faee"/>
+                            <rect x="100" y="20" width="300" height="160" rx="20" fill="#6c757d"/>
+                            <text x="50%" y="50%" font-size="24" fill="white" text-anchor="middle" font-family="Arial">超薄笔记本电脑</text>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product-detail.html?id=4">超薄笔记本电脑</a></h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="product-price">¥7999.00</p>
+                        <button class="btn btn-primary" onclick="addToCart(4, '超薄笔记本电脑', 7999, 'svg-laptop')">加入购物车</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="products.html" class="btn btn-outline">查看更多商品</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务保障 -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>极速配送</h3>
+                    <p>满299元包邮，全国配送</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>正品保障</h3>
+                    <p>所有商品100%正品行货</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-undo"></i>
+                    <h3>7天无理由</h3>
+                    <p>收货后7天无理由退换货</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>贴心客服</h3>
+                    <p>7×24小时在线客服支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">招贤纳士</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>客户服务</h3>
+                <ul>
+                    <li><a href="#">购物指南</a></li>
+                    <li><a href="#">支付方式</a></li>
+                    <li><a href="#">配送说明</a></li>
+                    <li><a href="#">售后服务</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <ul>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">抖音账号</a></li>
+                    <li><a href="#">小红书</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                    <li><i class="fas fa-envelope"></i> service@youpin.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区XX大厦</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container copyright">
+            <p>&copy; 2025 优品电商 版权所有 | 京ICP备12345678号</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
